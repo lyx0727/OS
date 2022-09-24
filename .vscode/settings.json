@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "console.h": "c",
+        "assert.h": "c",
+        "memlayout.h": "c",
+        "x86.h": "c",
+        "types.h": "c",
+        "monitor.h": "c"
+    }
+}
