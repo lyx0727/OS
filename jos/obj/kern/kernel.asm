@@ -1094,16 +1094,16 @@ f01008c9:	89 ef                	mov    %ebp,%edi
 	int i;
 	while(ebp){
 		uint32_t eip = *(ebp + 1);
-		cprintf("\tebp %08x\teip %08x\targs", ebp, eip);
+		cprintf("ebp %08x eip %08x args", ebp, eip);
 f01008cb:	8d 83 86 0b ff ff    	lea    -0xf47a(%ebx),%eax
 f01008d1:	89 45 e0             	mov    %eax,-0x20(%ebp)
 		for(i = 0; i < 4; i++){
 			cprintf(" %08x", *(ebp + 2 + i));
-f01008d4:	8d 83 9e 0b ff ff    	lea    -0xf462(%ebx),%eax
+f01008d4:	8d 83 9d 0b ff ff    	lea    -0xf463(%ebx),%eax
 f01008da:	89 45 e4             	mov    %eax,-0x1c(%ebp)
 	while(ebp){
 f01008dd:	eb 45                	jmp    f0100924 <mon_backtrace+0x73>
-		cprintf("\tebp %08x\teip %08x\targs", ebp, eip);
+		cprintf("ebp %08x eip %08x args", ebp, eip);
 f01008df:	83 ec 04             	sub    $0x4,%esp
 f01008e2:	ff 77 04             	pushl  0x4(%edi)
 f01008e5:	57                   	push   %edi
@@ -1134,7 +1134,10 @@ f0100921:	83 c4 10             	add    $0x10,%esp
 	while(ebp){
 f0100924:	85 ff                	test   %edi,%edi
 f0100926:	75 b7                	jne    f01008df <mon_backtrace+0x2e>
-	}
+	// 		cprintf("%08x ", arg[i]);
+	// 	cprintf("\n");
+	// 	ebp = (uint32_t*) (*ebp);
+	// }
 	return 0;
 }
 f0100928:	b8 00 00 00 00       	mov    $0x0,%eax
@@ -1173,7 +1176,7 @@ f010095f:	89 04 24             	mov    %eax,(%esp)
 f0100962:	e8 a0 01 00 00       	call   f0100b07 <cprintf>
 f0100967:	83 c4 10             	add    $0x10,%esp
 		while (*buf && strchr(WHITESPACE, *buf))
-f010096a:	8d 83 a8 0b ff ff    	lea    -0xf458(%ebx),%eax
+f010096a:	8d 83 a7 0b ff ff    	lea    -0xf459(%ebx),%eax
 f0100970:	89 45 a0             	mov    %eax,-0x60(%ebp)
 f0100973:	e9 dc 00 00 00       	jmp    f0100a54 <monitor+0x11f>
 f0100978:	83 ec 08             	sub    $0x8,%esp
@@ -1219,7 +1222,7 @@ f01009e5:	0f 84 92 00 00 00    	je     f0100a7d <monitor+0x148>
 	cprintf("Unknown command '%s'\n", argv[0]);
 f01009eb:	83 ec 08             	sub    $0x8,%esp
 f01009ee:	ff 75 a8             	pushl  -0x58(%ebp)
-f01009f1:	8d 83 ca 0b ff ff    	lea    -0xf436(%ebx),%eax
+f01009f1:	8d 83 c9 0b ff ff    	lea    -0xf437(%ebx),%eax
 f01009f7:	50                   	push   %eax
 f01009f8:	e8 0a 01 00 00       	call   f0100b07 <cprintf>
 	return 0;
@@ -1253,7 +1256,7 @@ f0100a3e:	eb d6                	jmp    f0100a16 <monitor+0xe1>
 			cprintf("Too many arguments (max %d)\n", MAXARGS);
 f0100a40:	83 ec 08             	sub    $0x8,%esp
 f0100a43:	6a 10                	push   $0x10
-f0100a45:	8d 83 ad 0b ff ff    	lea    -0xf453(%ebx),%eax
+f0100a45:	8d 83 ac 0b ff ff    	lea    -0xf454(%ebx),%eax
 f0100a4b:	50                   	push   %eax
 f0100a4c:	e8 b6 00 00 00       	call   f0100b07 <cprintf>
 			return 0;
@@ -1262,7 +1265,7 @@ f0100a51:	83 c4 10             	add    $0x10,%esp
 
 	while (1) {
 		buf = readline("K> ");
-f0100a54:	8d bb a4 0b ff ff    	lea    -0xf45c(%ebx),%edi
+f0100a54:	8d bb a3 0b ff ff    	lea    -0xf45d(%ebx),%edi
 f0100a5a:	83 ec 0c             	sub    $0xc,%esp
 f0100a5d:	57                   	push   %edi
 f0100a5e:	e8 f9 09 00 00       	call   f010145c <readline>
