@@ -5,6 +5,8 @@
         "memlayout.h": "c",
         "x86.h": "c",
         "types.h": "c",
-        "monitor.h": "c"
+        "monitor.h": "c",
+        "string.h": "c",
+        "stab.h": "c"
     }
 }
