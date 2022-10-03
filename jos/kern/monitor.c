@@ -63,7 +63,6 @@ mon_backtrace(int argc, char **argv, struct Trapframe *tf)
 	struct Eipdebuginfo info;
 	memset(&info, 0, sizeof(struct Eipdebuginfo));
 	int i;
-	cprintf("%d decimal is %o octal", 6828);
 	while(ebp){
 		uint32_t eip = *(ebp + 1);
 		cprintf("ebp %08x eip %08x args", ebp, eip);
